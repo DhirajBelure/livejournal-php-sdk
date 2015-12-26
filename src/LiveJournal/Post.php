@@ -25,4 +25,3 @@ class Post
     public $tagList;
     public $body;
 }
-?>
