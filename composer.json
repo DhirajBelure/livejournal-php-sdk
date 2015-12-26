@@ -1,0 +1,21 @@
+{
+  "name": "konstantin-kuklin/livejournal-php-sdk",
+  "license": "MIT",
+  "type": "library",
+  "description": "The \"LiveJournal\" PHP SDK",
+  "keywords": ["php", "library", "sdk", "livejournal", "lj"],
+  "homepage": "https://github.com/KonstantinKuklin/livejournal-php-sdk",
+  "authors": [
+    {
+      "name": "Konstantin Kuklin",
+      "email": "konstantin.kuklin@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": { "LiveJournal\\": "src/LiveJournal/" }
+  },
+  "require": {
+    "pear/xml_rpc2": "dev-master",
+    "pear/http_request2": "dev-master"
+  }
+}
