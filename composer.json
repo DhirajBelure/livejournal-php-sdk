@@ -15,7 +15,7 @@
     "psr-4": { "LiveJournal\\": "src/LiveJournal/" }
   },
   "require": {
-    "pear/xml_rpc2": "dev-master",
-    "pear/http_request2": "dev-master"
+    "pear/xml_rpc2": "dev-trunk",
+    "pear/http_request2": "dev-trunk"
   }
 }

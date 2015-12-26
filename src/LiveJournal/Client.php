@@ -64,9 +64,9 @@ class Client
     /**
      * Constructor for the LiveJournal
      *
-     * @param string $userName      The username of the blog account
-     * @param string $passwordPlain The password of the blog account
-     * @param string $server        The URI of the server to connect to
+     * @param string      $userName      The username of the blog account
+     * @param string      $passwordPlain The password of the blog account
+     * @param string|null $server        The URI of the server to connect to
      *
      * @throws \Exception
      */
