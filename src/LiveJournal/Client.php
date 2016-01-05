@@ -139,9 +139,11 @@ class Client
      * @param string|null $journalName Name of journal
      * @param int         $number      The number of posts to be retrieved.
      *
+     * @param array       $anotherOptions
+     *
      * @return Post[]
      */
-    public function fetchRecentPosts($journalName = null, $number = self::DEFAULT_POSTS_TO_FETCH)
+    public function fetchRecentPosts($journalName = null, $number = self::DEFAULT_POSTS_TO_FETCH, array $anotherOptions = [])
     {
         if ($number > self::MAX_POSTS_TO_FETCH) {
             $number = self::MAX_POSTS_TO_FETCH;
@@ -162,6 +164,7 @@ class Client
             'lineendings' => 'unix',
             'notags' => false,
         );
+        $value = array_merge($value, $anotherOptions);
 
         if ($journalName) {
             $value['usejournal'] = $journalName;

@@ -44,17 +44,29 @@ class PostHelper
             $post->author = $matches[1][0];
         }
 
+        if (isset($event['props']['taglist']->scalar)) {
+            $post->tagList = explode(',', $event['props']['taglist']->scalar);
+            $post->tagList = array_filter(
+                array_map('trim', $post->tagList),
+                function ($tag) {
+                    return $tag;
+                }
+            );
+        } else {
+            $post->tagList = [];
+        }
 
-        $post->tagList = explode(',', $event['props']['taglist']->scalar);
-        $post->tagList = array_filter(
-            array_map('trim', $post->tagList),
-            function ($tag) {
-                return $tag;
-            }
-        );
+        if (isset($event['subject']->scalar)) {
+            $post->title = $event['subject']->scalar;
+        } elseif (isset($event['subject']) && is_string($event['subject'])) {
+            $post->title = $event['subject'];
+        } else {
+            $post->title = '';
+        }
 
-        $post->title = $event['subject']->scalar;
-        $post->body = $event['event']->scalar;
+        if (isset($event['event']->scalar)) {
+            $post->body = $event['event']->scalar;
+        }
 
         return $post;
     }
